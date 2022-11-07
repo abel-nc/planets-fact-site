@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import './sass/variables';
+@import './sass/placeholders';
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+body {
+  background-color: $bg-main;
+  background-image: url(./assets/background-stars.svg);
+  overflow-x: hidden;
+}
+
+
+// NAV
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  h1 {
+    @extend %title;
+    font-size: 2.25rem;
+    cursor: default;
+  }
+
+  .sidebar {
+    display: none;
+    flex-direction: column;
+    margin-top: 1.5rem;
+
+    .nav-item {
+      margin-right: 0;
+    }
+  }
+
+  .hide-sidebar {
+    display: none;
+    margin-top: 0;
+  }
+
+  .hide-item {
+    display: none
+  }
+
+  .nav-item {
+    @extend %paragraph;
+    text-transform: uppercase;
+    margin-right: 1.25rem;
+    cursor: pointer;
+    padding: 9px 0 7px;
+    border-bottom: 2px solid transparent;
+    transition: 120ms ease;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
+  
+  // SINGLE PLANET STYLES
+  .mercury:hover {
+    border-bottom: 2px solid skyblue;
+  }
+
+  .venus:hover {
+    border-bottom: 2px solid goldenrod;
+  }
+
+  .earth:hover {
+    border-bottom: 2px solid rgb(28, 49, 233);
+  }
+
+  .mars:hover {
+    border-bottom: 2px solid orangered;
+  }
+
+  .jupiter:hover {
+    border-bottom: 2px solid sandybrown;
+  }
+
+  .saturn:hover {
+    border-bottom: 2px solid rgb(233, 192, 8);
+  }
+
+  .uranus:hover {
+    border-bottom: 2px solid aqua;
+  }
+
+  .neptune:hover {
+    border-bottom: 2px solid rgb(50, 37, 240);
+  }
+
+  .active {
+    color: $text-primary;
+  }
+
+  .menu-icon {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+    transition: 120ms ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+
+// PLANET 
+.planet-section {
+  padding: 7rem 10%;
+  position: relative;
+
+  .planet-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+
+    .planet-img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      max-width: 470px;
+      min-width: 370px;
+      margin: 0 5rem 0 2rem;
+
+      img {
+        width: 100%;
+      }
+
+      .geology-img {
+        width: 40%;
+      }
+    }
+
+    .planet-info {
+      max-width: 450px;
+
+      h1 {
+        @extend %title;
+        font-size: 4rem;
+      }
+
+      p {
+        @extend %paragraph;
+      }
+
+      h6 {
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 400;
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        
+        a {
+          margin-left: 0.45rem;
+          color: $text-secondary;
+
+          &:hover {
+            color: $text-primary;
+          }
+        }
+      }
+
+      .planet-btns {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+
+        button {
+          display: flex;
+          align-items: center;
+          background-color: $bg-main;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          padding: 0.75rem 1.5rem;
+          cursor: pointer;
+          transition: 120ms ease;
+
+          span {
+            @extend %paragraph;
+            font-size: 1rem;
+            margin-top: 3px;
+            font-weight: bold;
+            margin-right: 1.5rem;
+          }
+
+          h2 {
+            @extend %title;
+            font-size: 1.15rem;
+            letter-spacing: 2px;
+          }
+        }
+
+        // SINGLE PLANET STYLES
+        .mercury:hover {
+          background-color: skyblue;
+        }
+
+        .venus:hover {
+          background-color: goldenrod;
+        }
+
+        .earth:hover {
+          background-color: rgb(28, 49, 233);
+        }
+
+        .mars:hover {
+          background-color: orangered;
+        }
+
+        .jupiter:hover {
+          background-color: sandybrown;
+        }
+
+        .saturn:hover {
+          background-color: rgb(233, 192, 8);
+        }
+
+        .uranus:hover {
+          background-color: aqua;
+        }
+
+        .neptune:hover {
+          background-color: rgb(50, 37, 240);
+        }
+
+        .mercury.active {
+          background-color: skyblue;
+        }
+    
+        .venus.active {
+          background-color: goldenrod;
+        }
+    
+        .earth.active {
+          background-color: rgb(28, 49, 233);
+        }
+    
+        .mars.active {
+          background-color: orangered;
+        }
+    
+        .jupiter.active {
+          background-color: sandybrown;
+        }
+    
+        .saturn.active {
+          background-color: rgb(233, 192, 8);
+        }
+    
+        .uranus.active {
+          background-color: aqua;
+        }
+    
+        .neptune.active {
+          background-color: rgb(50, 37, 240);
+        }
+      }
+    }
+  }
+
+  .planet-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+
+    .stat {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem;
+      text-transform: uppercase;
+
+      h6 {
+        @extend %paragraph;
+        font-weight: 500;
+        letter-spacing: 0.8px;
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem
+      }
+
+      h2 {
+        @extend %title;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .mobile-planet-btns {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 5%;
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-between;
+    background-color: $bg-main;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    button {
+      background-color: transparent;
+      border: 0;
+      padding: calc(1rem + 2px) 0 1rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 2px solid transparent;
+      transition: 120ms ease;
+      cursor: pointer;
+    }
+
+    // SINGLE PLANET STYLES
+    .mercury:hover {
+      border-bottom: 2px solid skyblue;
+    }
+
+    .venus:hover {
+      border-bottom: 2px solid goldenrod;
+    }
+
+    .earth:hover {
+      border-bottom: 2px solid rgb(28, 49, 233);
+    }
+
+    .mars:hover {
+      border-bottom: 2px solid orangered;
+    }
+
+    .jupiter:hover {
+      border-bottom: 2px solid sandybrown;
+    }
+
+    .saturn:hover {
+      border-bottom: 2px solid rgb(233, 192, 8);
+    }
+
+    .uranus:hover {
+      border-bottom: 2px solid aqua;
+    }
+
+    .neptune:hover {
+      border-bottom: 2px solid rgb(50, 37, 240);
+    }
+
+    .mercury.active {
+      border-bottom: 2px solid skyblue;
+    }
+
+    .venus.active {
+      border-bottom: 2px solid goldenrod;
+    }
+
+    .earth.active {
+      border-bottom: 2px solid rgb(28, 49, 233);
+    }
+
+    .mars.active {
+      border-bottom: 2px solid orangered;
+    }
+
+    .jupiter.active {
+      border-bottom: 2px solid sandybrown;
+    }
+
+    .saturn.active {
+      border-bottom: 2px solid rgb(233, 192, 8);
+    }
+
+    .uranus.active {
+      border-bottom: 2px solid aqua;
+    }
+
+    .neptune.active {
+      border-bottom: 2px solid rgb(50, 37, 240);
+    }
+  }
+}
+
+
+// RESPONSIVE DESIGN 
+@media screen and (max-width: 1000px) {
+
+  // NAV
+  .navbar {
+    flex-direction: column;
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  // PLANET 
+  .planet-section {
+    padding: 7rem 5%;
+
+    .planet-content {
+      flex-direction: column;
+
+      .planet-img {
+        margin: 0;
+        width: 100%;
+        max-width: 370px;
+        min-width: unset;
+        margin-bottom: 4rem;
+      }
+
+      .planet-info {
+        width: 100%;
+        max-width: unset;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+        align-items: center;
+        justify-content: space-between;
+
+        h6 {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .planet-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 710px) {
+
+  // NAV 
+  .navbar {
+    align-items: flex-start;
+    flex-direction: row;
+
+    h1 {
+      margin: 0;
+    }
+
+    .sidebar {
+      display: flex;
+    }
+
+    .nav-items {
+      display: none;
+    }
+
+    .menu-icon {
+      margin-top: 15px;
+      display: block;
+    }
+  }
+
+  // PLANET 
+  .planet-section {
+
+    .planet-content {
+
+      .planet-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+
+        .planet-btns {
+          display: none;
+        }
+
+        h6 {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    .mobile-planet-btns {
+      display: flex;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  // PLANET 
+  .planet-section {
+
+    .planet-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media screen and (max-width: 310px) {
+  html {
+    font-size: 14px;
+  }
+}
